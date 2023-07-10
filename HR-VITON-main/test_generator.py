@@ -18,6 +18,7 @@ from collections import OrderedDict
 
 import warnings
 warnings.filterwarnings("ignore")
+np.float=np.float32
 
 def remove_overlap(seg_out, warped_cm):
     
@@ -129,7 +130,7 @@ def test(opt, test_loader, tocg, generator):
                 #im = inputs['image']
                 #input_label=label.cuda(),
                 input_parse_agnostic = parse_agnostic.cuda()
-                pre_clothes_mask = torch.FloatTensor((pre_clothes_mask.detach().cpu().numpy() > 0.5).astype(np.float)).cuda()
+                pre_clothes_mask = torch.FloatTensor((pre_clothes_mask.detach().cpu().numpy() > 0.5).astype(np.float32)).cuda()
             else :
                 #pose_map = inputs['pose']
                 pre_clothes_mask = inputs['cloth_mask'][opt.datasetting]
