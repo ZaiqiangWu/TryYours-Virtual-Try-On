@@ -14,6 +14,7 @@ model.eval()
 image = load_rgb("./static/cloth_web.jpg")
 print(image.shape)
 image = cv2.resize(image,(500,600))
+print(image.shape)
 
 transform = albu.Compose([albu.Normalize(p=1)], p=1)
 
