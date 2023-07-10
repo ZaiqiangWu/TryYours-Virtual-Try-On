@@ -12,7 +12,7 @@ warnings.filterwarnings("ignore")
 model = create_model("Unet_2020-10-30")
 model.eval()
 image = load_rgb("./static/cloth_web.jpg")
-image = cv2.resize(image,(500,600))
+#image = cv2.resize(image,(500,600))
 
 transform = albu.Compose([albu.Normalize(p=1)], p=1)
 
