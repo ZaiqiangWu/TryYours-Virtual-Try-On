@@ -33,6 +33,7 @@ img=np.full((1024,768,3), 255)
 seg_img=np.full((1024,768), 0)
 
 b=cv2.imread("./static/cloth_web.jpg")
+b=cv2.resize(b,(500,600))
 b_img = mask* 255
                  
 if b.shape[1]<=600 and b.shape[0]<=500:
