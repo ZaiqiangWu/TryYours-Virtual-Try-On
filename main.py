@@ -14,6 +14,7 @@ if __name__ == '__main__':
     
     # Read input image
     img=cv2.imread("./static/origin_web.jpg")
+    h,w,_ = img.shape
     ori_img=cv2.resize(img,(768,1024))
     cv2.imwrite("./origin.jpg",ori_img)
 
@@ -88,4 +89,5 @@ if __name__ == '__main__':
             cv2.imwrite(i,img)
 
     os.chdir("../")
+    img = cv2.resize(img,(w,h))
     cv2.imwrite("./static/finalimg.png", img)
