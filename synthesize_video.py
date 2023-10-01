@@ -42,6 +42,7 @@ def process_video(video_path):
     os.makedirs('./qualitative_evaluation_short_clamp/method_3/target_0/',exist_ok=True)
     result_path = os.path.join('./qualitative_evaluation_short_clamp/method_3/target_0/',video_name)
     video_writer.make_video(outvid=result_path,fps=30)
+    video_writer.make_video(outvid=os.path.join('./',video_name), fps=30)
 
 
 def main():
