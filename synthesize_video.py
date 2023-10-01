@@ -13,11 +13,12 @@ def process_video(video_path):
     input_image_list = []
     target_garment = './temporal_target_garments'
     video_writer = Image2VideoWriter()
+    video_writer2 = Image2VideoWriter()
     count=0
     while success:
         success, image = vidcap.read()
-        if count>5:
-            break
+        #if count>5:
+        #    break
         if not success:
             break
         h,w,_ = image.shape
@@ -32,11 +33,14 @@ def process_video(video_path):
         h, w, _ = img.shape
         zero_pad = np.zeros((h,w,3)).astype(np.uint8)
         frame = np.concatenate([img,zero_pad,result],1)
+        frame2 = np.concatenate([img, result], 1)
         video_writer.append(frame)
+        video_writer2.append(frame2)
 
         t2 = time.perf_counter()
         print("elapsed time (s):", (t2 - t1))
-    result_path = os.path.join('./qualitative_evaluation_short_clamp/method_2/target_0/',video_name)
+    os.makedirs('./qualitative_evaluation_short_clamp/method_3/target_0/',exist_ok=True)
+    result_path = os.path.join('./qualitative_evaluation_short_clamp/method_3/target_0/',video_name)
     video_writer.make_video(outvid=result_path,fps=30)
 
 
@@ -49,6 +53,8 @@ def main():
         if item.endswith('.mp4'):
             target_path_list.append(os.path.join(target_dir,item))
     process_video('./qualitative_evaluation_short_clamp/method_0/target_0/first_A_result__compose.mp4')
+    process_video('./qualitative_evaluation_short_clamp/method_0/target_0/first_B_result__compose.mp4')
+    process_video('./qualitative_evaluation_short_clamp/method_0/target_0/first_C_result__compose.mp4')
 
 
 if __name__ == '__main__':
