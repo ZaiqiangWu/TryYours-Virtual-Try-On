@@ -24,7 +24,7 @@ def process_video(video_path):
         input_image_list.append(image[:,0:w//3,:])
         count+=1
     for img in input_image_list:
-        t1 = time.clock()
+        t1 = time.perf_counter()
         cv2.imwrite("./static/origin_web.jpg", img)
         os.system('cp ' + target_garment + ' ./static/cloth_web.jpg')
         os.system('python main.py')
@@ -34,7 +34,7 @@ def process_video(video_path):
         frame = np.concatenate([img,zero_pad,result],1)
         video_writer.append(frame)
 
-        t2 = time.clock()
+        t2 = time.perf_counter()
         print("elapsed time (s):", (t2 - t1))
     result_path = os.path.join('./qualitative_evaluation_short_clamp/method_2/target_0/',video_name)
     video_writer.make_video(outvid=result_path,fps=30)
