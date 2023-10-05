@@ -55,7 +55,7 @@ def main():
             target_path_list.append(os.path.join(target_dir,item))
     process_video('./qualitative_evaluation_short_clamp/method_0/target_0/ichao_result__compose.mp4')
     #process_video('./qualitative_evaluation_short_clamp/method_0/target_0/first_B_result__compose.mp4')
-    #process_video('./qualitative_evaluation_short_clamp/method_0/target_0/first_C_result__compose.mp4')
+
 
 
 if __name__ == '__main__':
