@@ -24,6 +24,7 @@ def process_video(video_path):
         h,w,_ = image.shape
         input_image_list.append(image[:,0:w//3,:])
         count+=1
+    step =0
     for img in input_image_list:
         t1 = time.perf_counter()
         cv2.imwrite("./static/origin_web.jpg", img)
@@ -38,11 +39,16 @@ def process_video(video_path):
         video_writer2.append(frame2)
 
         t2 = time.perf_counter()
+
         print("elapsed time (s):", (t2 - t1))
+        if step%20==0 and step>10:
+            video_writer2.make_video(outvid=os.path.join('./','step'+str(1).zfill(3)+'_'+video_name), fps=30)
+
+        step += 1
     os.makedirs('./qualitative_evaluation_short_clamp/method_3/target_0/',exist_ok=True)
     result_path = os.path.join('./qualitative_evaluation_short_clamp/method_3/target_0/',video_name)
     video_writer.make_video(outvid=result_path,fps=30)
-    video_writer.make_video(outvid=os.path.join('./',video_name), fps=30)
+
 
 
 def main():
