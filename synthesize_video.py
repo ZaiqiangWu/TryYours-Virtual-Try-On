@@ -42,7 +42,7 @@ def process_video(video_path):
 
         print("elapsed time (s):", (t2 - t1))
         if step%20==0 and step>10:
-            video_writer2.make_video(outvid=os.path.join('./','step'+str(1).zfill(3)+'_'+video_name), fps=30)
+            video_writer2.make_video(outvid=os.path.join('./','step'+str(step).zfill(3)+'_'+video_name), fps=30)
 
         step += 1
     os.makedirs('./qualitative_evaluation_short_clamp/method_3/target_0/',exist_ok=True)
@@ -60,7 +60,7 @@ def main():
         if item.endswith('.mp4'):
             target_path_list.append(os.path.join(target_dir,item))
 
-    process_video('./qualitative_evaluation_short_clamp/method_0/target_0/yinfei_result__compose.mp4')
+    #process_video('./qualitative_evaluation_short_clamp/method_0/target_0/yinfei_result__compose.mp4')
     process_video('./qualitative_evaluation_short_clamp/method_0/target_0/ichao_result__compose.mp4')
 
 
