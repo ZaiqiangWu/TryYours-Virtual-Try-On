@@ -46,8 +46,8 @@ def process_video(video_path):
 
         print("elapsed time (s):", (t2 - t1))
         complete_num = n_frame - step -2
-        if step%20==0 and step>10:
-            video_writer2.make_video(outvid=os.path.join('./','step'+str(step).zfill(3)+'_'+video_name), fps=30)
+        if complete_num%20==0:
+            video_writer2.make_video(outvid=os.path.join('./','step'+str(complete_num).zfill(3)+'_r_'+video_name), fps=30)
 
         step += 1
     os.makedirs('./qualitative_evaluation_short_clamp/method_3/target_0/',exist_ok=True)
