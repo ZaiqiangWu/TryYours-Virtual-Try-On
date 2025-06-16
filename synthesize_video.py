@@ -38,19 +38,18 @@ def process_video(video_path):
         h, w, _ = img.shape
         zero_pad = np.zeros((h,w,3)).astype(np.uint8)
         print(img.shape)
+        result = cv2.resize(result, (w,h))
         print(result.shape)
-        frame = np.concatenate([img,zero_pad,result],1)
+        #frame = np.concatenate([img,zero_pad,result],1)
 
-        frame2 = np.concatenate([img, result], 1)
-        video_writer.append(frame)
+        #frame2 = np.concatenate([img, result], 1)
+        video_writer.append(result)
 
 
         t2 = time.perf_counter()
 
         print("elapsed time (s):", (t2 - t1))
-        complete_num = n_frame - step -2
-        if step%20==0 and step>10:
-            video_writer2.make_video(outvid=os.path.join('./','step'+str(step).zfill(3)+'_'+video_name), fps=30)
+
 
         step += 1
     os.makedirs('./results/',exist_ok=True)
