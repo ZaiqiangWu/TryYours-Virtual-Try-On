@@ -57,13 +57,7 @@ def process_video(video_path):
 
 
 def main():
-    target_dir = './qualitative_evaluation_short_clamp/method_0/target_0/'
-    filelist = os.listdir(target_dir)
-    filelist.sort()
-    target_path_list =[]
-    for item in filelist:
-        if item.endswith('.mp4'):
-            target_path_list.append(os.path.join(target_dir,item))
+
 
     process_video('./yinfei.mp4')
     #process_video('./qualitative_evaluation_short_clamp/method_0/target_0/ichao_result__compose.mp4')
