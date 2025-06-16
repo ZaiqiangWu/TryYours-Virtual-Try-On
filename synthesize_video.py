@@ -37,10 +37,13 @@ def process_video(video_path):
         result = cv2.imread('./static/finalimg.png')
         h, w, _ = img.shape
         zero_pad = np.zeros((h,w,3)).astype(np.uint8)
+        print(img.shape)
+        print(result.shape)
         frame = np.concatenate([img,zero_pad,result],1)
+
         frame2 = np.concatenate([img, result], 1)
         video_writer.append(frame)
-        video_writer2.append(frame2)
+
 
         t2 = time.perf_counter()
 
