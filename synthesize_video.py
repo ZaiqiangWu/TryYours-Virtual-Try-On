@@ -26,7 +26,7 @@ def process_video(video_path):
         count+=1
     step =0
 
-    input_image_list.reverse()
+    #input_image_list.reverse()
     n_frame = len(input_image_list)
 
     for img in input_image_list:
@@ -50,8 +50,8 @@ def process_video(video_path):
             video_writer2.make_video(outvid=os.path.join('./','step'+str(step).zfill(3)+'_'+video_name), fps=30)
 
         step += 1
-    os.makedirs('./qualitative_evaluation_short_clamp/method_3/target_0/',exist_ok=True)
-    result_path = os.path.join('./qualitative_evaluation_short_clamp/method_3/target_0/',video_name)
+    os.makedirs('./results/',exist_ok=True)
+    result_path = os.path.join('./results/',video_name)
     video_writer.make_video(outvid=result_path,fps=30)
 
 
@@ -65,7 +65,7 @@ def main():
         if item.endswith('.mp4'):
             target_path_list.append(os.path.join(target_dir,item))
 
-    process_video('./qualitative_evaluation_short_clamp/method_0/target_0/yinfei_result__compose.mp4')
+    process_video('./yinfei.mp4')
     #process_video('./qualitative_evaluation_short_clamp/method_0/target_0/ichao_result__compose.mp4')
 
 
