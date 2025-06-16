@@ -11,7 +11,7 @@ def process_video(video_path):
     vidcap = cv2.VideoCapture(video_path)
     success = True
     input_image_list = []
-    target_garment = './temporal_target_garments'
+    target_garment = './temporal_target_garments/first_garment.jpg'
     video_writer = Image2VideoWriter()
     video_writer2 = Image2VideoWriter()
     count=0
