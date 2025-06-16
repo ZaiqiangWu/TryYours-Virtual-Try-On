@@ -22,7 +22,8 @@ def process_video(video_path):
         if not success:
             break
         h,w,_ = image.shape
-        input_image_list.append(image[:,:,:])
+        image=cv2.resize(image,(768,1024))
+        input_image_list.append(image)
         count+=1
     step =0
 
